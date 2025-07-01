@@ -1,0 +1,6 @@
+flask
+requests
+python-telegram-bot==20.6
+pytz
+pandas
+nest_asyncio
