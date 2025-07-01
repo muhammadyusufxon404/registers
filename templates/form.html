@@ -1,0 +1,103 @@
+<!-- templates/form.html -->
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>O'quvchi Ro'yxatdan O'tish</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: radial-gradient(circle at 0% 0%, #000000, #3533cd);
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 700;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(to bottom right, #ffffff, #f0f0ff);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h3 {
+            color: #343a40;
+        }
+        label {
+            font-weight: 700;
+            font-size: 14px;
+        }
+        button {
+            font-size: 16px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #007bff, #6610f2);
+            border: none;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #0056b3, #520dc2);
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px auto;
+            max-width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Magistr logo" class="logo">
+    <h3 class="text-center mb-4"><i class="fas fa-user-edit"></i> Ro'yxatdan o'tish</h3>
+    <form method="POST">
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-user"></i> Ismi</label>
+            <input type="text" class="form-control" name="ismi" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-book"></i> Kursi</label>
+            <select class="form-control" name="kurs" required>
+                <option value="">-- Kursni tanlang --</option>
+                <option>Ingliz tili</option>
+                <option>Koreys tili</option>
+                <option>Nemis tili</option>
+                <option>Turk tili</option>
+                <option>Rus tili</option>
+                <option>Ona tili</option>
+                <option>Matematika</option>
+                <option>Tarix</option>
+                <option>Geografiya</option>
+                <option>Biologiya</option>
+                <option>Huquq</option>
+                <option>Kimyo</option>
+                <option>IT sohasi</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-phone"></i> Telefon raqam 1</label>
+            <input type="text" class="form-control" name="tel1" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-phone"></i> Telefon raqam 2 (ixtiyoriy)</label>
+            <input type="text" class="form-control" name="tel2">
+        </div>
+        <div class="mb-3">
+            <label class="form-label"><i class="fas fa-comment-dots"></i> Izoh (qo'shimcha uchun)</label>
+            <textarea class="form-control" name="izoh" rows="2"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-paper-plane"></i> Yuborish</button>
+    </form>
+</div>
+</body>
+</html>
